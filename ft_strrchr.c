@@ -1,46 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 13:40:59 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 16:01:53 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/11 12:51:24 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/11 16:53:11 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <unistd.h>
+
+char	*ft_strrchr(const char *s, int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	int		i;
+	char	*result;
+
+	i = 0;
+	result = NULL;
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			result = (char *)(&s[i]);
+		i++;
+	}
+	return (result);
 }
 
 /*
-// Testing zone 
+// Tests
 #include <stdio.h>
-#include <ctype.h>
 
-void	test(int value)
+void	test(char *str, int c)
 {
-	int	result;
-	int	expected_result;
+	char	*res;
 
-	result = ft_isalpha(value);
-	expected_result = isalpha(expected_result);
-	if (result >= expected_result)
-		printf("PASS! ft_isalpha: %d\n", result);
+	res = ft_strrchr(str, c);
+	if (res)
+		printf("RES == %c\n", *res);
 	else
-		printf("FAILED! ft_isalpha: %d, expected: \
-				%d\n", result, expected_result);
-}
+		printf("RES == NULL\n");
 
+}
 int	main(void)
 {
-	test('a');
-	test('z');
-	test('A');
-	test('Z');
-	test('1');
+	test("lolo", 'o');
+	test("lol", 'i');
 
 	return (0);
 }

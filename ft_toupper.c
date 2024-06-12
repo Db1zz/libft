@@ -1,44 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 13:52:15 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 19:43:14 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/11 12:08:28 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/11 12:28:50 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+int	ft_toupper(int c)
 {
-	return (c >= '0' && c <= '9');
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
 }
 
 /*
-// Testing zone 
+// Tests
 #include <stdio.h>
-
-void	test(int value, int expected_result)
-{
-	int	result;
-
-	result = ft_isdigit(value);
-	if (result == expected_result)
-		printf("PASS! ft_isdigit: %d\n", result);
-	else
-		printf("FAILED! ft_isdigit: %d, expected: \
-				%d\n", result, expected_result);
-}
 
 int	main(void)
 {
-	test('1', 1);
-	test('9', 1);
-	test('a', 0);
-	test('.', 0);
-	test('~', 0);
-
-	return (0);
+	printf("%c \n", ft_toupper('a'));
 }
 */

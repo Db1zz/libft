@@ -1,43 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 13:52:15 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 19:43:14 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/10 19:52:57 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/10 20:19:33 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
+#include <unistd.h>
 
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	int	i;
+
+	if (!dest || !src)
+		return (dest);
+	if (dest > src)
+		while (n-- > 0)
+			((char *)dest)[n] = ((char *)src)[n];
+	i = -1;
+	while (++i < n)
+		((char *)dest)[i] = ((char *)src)[i];
+	return (dest);
+}
 /*
-// Testing zone 
+// Tests
 #include <stdio.h>
-
-void	test(int value, int expected_result)
-{
-	int	result;
-
-	result = ft_isdigit(value);
-	if (result == expected_result)
-		printf("PASS! ft_isdigit: %d\n", result);
-	else
-		printf("FAILED! ft_isdigit: %d, expected: \
-				%d\n", result, expected_result);
-}
 
 int	main(void)
 {
-	test('1', 1);
-	test('9', 1);
-	test('a', 0);
-	test('.', 0);
-	test('~', 0);
+	char test_arr[] = "Hello World!";
+	memmove(&test_arr[6], &test_arr[0], 5);
+	printf("Result: %s\n", test_arr);
 
 	return (0);
 }

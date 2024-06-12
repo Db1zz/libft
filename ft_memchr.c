@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 13:40:59 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 16:01:53 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/11 13:09:22 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/11 15:25:54 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <unistd.h>
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return (&((void *)s)[i]);
+		i++;
+	}
+	return (NULL);
 }
 
+// Tests
 /*
-// Testing zone 
 #include <stdio.h>
-#include <ctype.h>
 
-void	test(int value)
+void	test(const void *s, int c, size_t n)
 {
-	int	result;
-	int	expected_result;
+	char * res;
 
-	result = ft_isalpha(value);
-	expected_result = isalpha(expected_result);
-	if (result >= expected_result)
-		printf("PASS! ft_isalpha: %d\n", result);
-	else
-		printf("FAILED! ft_isalpha: %d, expected: \
-				%d\n", result, expected_result);
+	res = (char *)ft_memchr(s, c, n);
+	printf("%s\n", res);
+	
 }
 
 int	main(void)
 {
-	test('a');
-	test('z');
-	test('A');
-	test('Z');
-	test('1');
-
+	test("Space Ship", 'h', 10);
+	test("Space Ship", 'S', 10);
 	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:28:21 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 14:33:36 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/12 12:34:01 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	test(int value, int expected_result)
 
 	result = ft_isalnum(value);
 	if (result == expected_result)
-		printf("PASS! ft_isalpha: %d\n", result);
+		printf("PASS! ft_isalnum: %d\n", result);
 	else
-		printf("FAILED! ft_isalpha: %d, expected: \
+		printf("FAILED! ft_isalnum: %d, expected: \
 				%d\n", result, expected_result);
 }
 

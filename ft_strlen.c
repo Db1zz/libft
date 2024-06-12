@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 13:52:15 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 19:43:14 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/10 16:28:11 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/12 11:16:21 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include <stddef.h>
+
+size_t	ft_strlen(const char *str)
 {
-	return (c >= '0' && c <= '9');
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
 
 /*
-// Testing zone 
+// Testin Zone
 #include <stdio.h>
-
-void	test(int value, int expected_result)
-{
-	int	result;
-
-	result = ft_isdigit(value);
-	if (result == expected_result)
-		printf("PASS! ft_isdigit: %d\n", result);
-	else
-		printf("FAILED! ft_isdigit: %d, expected: \
-				%d\n", result, expected_result);
-}
 
 int	main(void)
 {
-	test('1', 1);
-	test('9', 1);
-	test('a', 0);
-	test('.', 0);
-	test('~', 0);
-
+	printf("Test 1: %d\n", ft_strlen("Hello World!\n"));
+	printf("Test 2: %d\n", ft_strlen("\n"));
+	printf("Test 3: %d\n", ft_strlen(""));
 	return (0);
 }
 */
