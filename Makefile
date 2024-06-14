@@ -32,4 +32,5 @@ fclean: clean
 
 re:	fclean all
 
+# Exclude these commands from execution
 .PHONY: all clean fclean re
