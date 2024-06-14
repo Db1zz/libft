@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:26:02 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/13 16:19:18 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:00:36 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	unsigned char *p1;
-	unsigned char *p2;
+	size_t			i;
+	unsigned char	*p1;
+	unsigned char	*p2;
 
 	p1 = (unsigned char *)s1;
 	p2 = (unsigned char *)s2;

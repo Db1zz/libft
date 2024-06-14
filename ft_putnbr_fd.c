@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:47:50 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 16:43:31 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:02:42 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		num *= -1;
 	}
-	if(num >= 10)
+	if (num >= 10)
 		ft_putnbr_fd(num / 10, fd);
 	ft_putchar_fd('0' + (num % 10), fd);
 }

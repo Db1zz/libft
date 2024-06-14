@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:04:35 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 11:58:17 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:01:14 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	test(char const *string, unsigned int start,
 	if(!cmp_res)
 		printf("PASS! %s\n", result);
 	else
-		printf("FAILED: Got %s, Expected %s | CMP_RES: %d\n", result, expected, cmp_res);
+		printf("FAILED: Got %s, Expected %s | CMP_RES: %d\n", 
+				result, expected, cmp_res);
 	free(result);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:58:19 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 12:00:26 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:00:51 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(char *src)
 	if (len - 1 == 0 || result == NULL)
 		return (NULL);
 	ft_strlcpy(result, src, len);
-	result[len] =' \0';
+	result[len] = '\0';
 	return (result);
 }
 
