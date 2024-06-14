@@ -1,41 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 19:40:36 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/13 22:45:35 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/14 14:47:50 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/14 16:43:31 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <unistd.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	long int	num;
 
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
+	num = n;
+	if (num < 0)
 	{
-		((char *)dest)[i] = ((char *)src)[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		num *= -1;
 	}
-	return (dest);
+	if(num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	ft_putchar_fd('0' + (num % 10), fd);
 }
 
-// Tests
 /*
-#include <stdio.h>
+// Tests
+#include <limits.h>
+
+void	test(int n)
+{
+	ft_putnbr_fd(n);
+	ft_putchar('\n');
+}
 
 int	main(void)
 {
-	char src[] = "DeadInsideKids";
-	char dest[128];
-	ft_memcpy(&dest[0], &src[0], 15);
-	printf("Result: %s\n", dest);
+	test(INT_MIN);
+	test(-1);
+	test(-10);
+	test(-11);
 }
 */

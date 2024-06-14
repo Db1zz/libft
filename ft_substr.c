@@ -1,52 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/12 10:58:19 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 12:00:26 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/13 11:04:35 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/14 11:58:17 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strdup(char *src)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
 	char	*result;
 
-	len = ft_strlen(src) + 1;
 	result = (char *)malloc(len + 1);
-	if (len - 1 == 0 || result == NULL)
+	if (!result || len == 0)
 		return (NULL);
-	ft_strlcpy(result, src, len);
-	result[len] =' \0';
+	ft_memcpy(result, s + start, len);
+	result[len] = '\0';
 	return (result);
 }
 
-/*
 // Tests
+/*
 #include <stdio.h>
-#include <string.h>
 
-void	test(char *to_dup)
+void	test(char const *string, unsigned int start, 
+			 size_t len, char const *expected)
 {
-	char	*strdup_res = strdup(to_dup);
-	char	*ft_strdup_res = ft_strdup(to_dup);
-
-	if (!strncmp(strdup_res, ft_strdup_res, strlen(to_dup)))
-		printf("PASS!\n");
+	char	*result = ft_substr(string, start, len);
+	int		cmp_res = ft_memcmp(expected, result, len);
+	if(!cmp_res)
+		printf("PASS! %s\n", result);
 	else
-		printf("FAILED: strdup_res[%s] ft_strdup_res[%s]\n",
-			  strdup_res, ft_strdup_res);
+		printf("FAILED: Got %s, Expected %s | CMP_RES: %d\n", result, expected, cmp_res);
+	free(result);
 }
 
 int	main(void)
 {
-	test("Hello World!");
-	return (0);
+	test("Hello World!", 6, 6, "World!");
 }
 */

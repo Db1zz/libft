@@ -6,25 +6,25 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:26:02 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/12 12:38:04 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:19:18 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stddef.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
+	unsigned char *p1;
+	unsigned char *p2;
 
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
 	if (n <= 0)
 		return (0);
 	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			break ;
+	while (i < n && (p1[i] && p2[i]) && (p1[i] == p2[i]))
 		i++;
-	}
 	return (((char *)s1)[i] - ((char *)s2)[i]);
 }
 

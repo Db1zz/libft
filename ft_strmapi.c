@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 19:40:36 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/13 22:45:35 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/14 13:44:55 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/14 14:18:14 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char	*result;
+	size_t	len;
 	size_t	i;
 
-	if (!dest)
+	len = ft_strlen(s);
+	result = (char *)malloc(len + 1);
+	if (!result)
 		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		((char *)dest)[i] = ((char *)src)[i];
-		i++;
-	}
-	return (dest);
+	i = -1;
+	while (++i < len)
+		result[i] = (*f)(i, result[i]);
+	result[len] = '\0';
+	return (result);
 }
 
-// Tests
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char src[] = "DeadInsideKids";
-	char dest[128];
-	ft_memcpy(&dest[0], &src[0], 15);
-	printf("Result: %s\n", dest);
-}
-*/
+// Tests ?????
+// Lazy ass!

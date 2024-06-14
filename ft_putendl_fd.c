@@ -1,41 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 19:40:36 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/13 22:45:35 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/14 14:44:48 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/14 14:47:30 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	size_t	i;
-
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		((char *)dest)[i] = ((char *)src)[i];
-		i++;
-	}
-	return (dest);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
-
-// Tests
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char src[] = "DeadInsideKids";
-	char dest[128];
-	ft_memcpy(&dest[0], &src[0], 15);
-	printf("Result: %s\n", dest);
-}
-*/

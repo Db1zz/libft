@@ -1,41 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 19:40:36 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/13 22:45:35 by gonische         ###   ########.fr       */
+/*   Created: 2024/06/14 14:30:30 by gonische          #+#    #+#             */
+/*   Updated: 2024/06/14 14:33:50 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	if (!dest)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		((char *)dest)[i] = ((char *)src)[i];
-		i++;
-	}
-	return (dest);
+	write(fd, &c, 1);	
 }
-
-// Tests
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char src[] = "DeadInsideKids";
-	char dest[128];
-	ft_memcpy(&dest[0], &src[0], 15);
-	printf("Result: %s\n", dest);
-}
-*/
