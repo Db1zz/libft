@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:12:02 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 22:41:04 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 22:51:04 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 // Tests
 /*
-	For tests compile this programm with cc -lbsd ft_strlcat.c ft_memcpy.c ft_strlen.c
+	For tests compile this programm with:
+		 cc -lbsd ft_strlcat.c ft_memcpy.c ft_strlen.c
 */
 /*
 #include <bsd/string.h>
