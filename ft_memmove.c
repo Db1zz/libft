@@ -6,15 +6,15 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 19:52:57 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 20:19:33 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/14 18:52:42 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	if (!dest || !src)
 		return (dest);
