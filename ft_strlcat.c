@@ -6,7 +6,7 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 22:12:02 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 22:51:04 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:49:21 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	main(void)
 	test("Hello", " World!", 14);
 	test("", " World!", 14);
 	test("World!", "", 0);
+	test("", "World!", 15);
 	test("Hello", " World!", 0);
 	test("Hello", " World!", 1);
 	return (0);

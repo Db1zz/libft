@@ -28,7 +28,7 @@ clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm $(NAME).a
+	rm -f $(NAME).a a.out
 
 re:	fclean all
 

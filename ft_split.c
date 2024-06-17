@@ -6,13 +6,14 @@
 /*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 20:53:58 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 14:22:42 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:07:13 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
+// delimeter == '\0'
+// "[rnd'\0'asdasd'\0'dasd'\0']"
 static size_t	count_words(char const *s, char delimeter)
 {
 	size_t	i;
@@ -87,8 +88,9 @@ char	**ft_split(char const *s, char delimeter)
 	result[matrix_len] = NULL;
 	return (result);
 }
-/*
+
 // Tests
+/*
 #include <stdio.h>
 
 void	test_count_words(char const *s, char delimeter, int expected)
@@ -124,11 +126,12 @@ void	test_ft_split(char const *s, char delimeter)
 
 int	main(void)
 {
-	// test_count_words("lolcabobachuesos", 'c', 3);
-	// test_count_words("", 'c', 0);
-	// test_count_words("abc", 'c', 1);
+	test_count_words("lolcabobachuesos", 'c', 3);
+	test_count_words("", 'c', 0);
+	test_count_words("abc", 'c', 1);
 	test_ft_split("lolcabobachuesos", 'c');
 	test_ft_split("lol", 'c');
 	test_ft_split("", 'c');
+	test_ft_split("rnd1\0asdasd\0dfskgfdg\0sadfasdf\0", '\0');
 }
 */
