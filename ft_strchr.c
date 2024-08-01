@@ -3,26 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:30:56 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/11 16:42:46 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:51:41 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*result;
+	int	i;
 
-	result = (char *)s;
-	while ((*result) != '\0')
+	i = 0;
+	while (s[i])
 	{
-		if ((*result) == (char)c)
-			return (result);
-		result++;
+		if (s[i] == (char)c)
+			break ;
+		i++;
 	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
 	return (NULL);
 }
 
@@ -45,6 +47,7 @@ int	main(void)
 {
 	test("lol", 'o');
 	test("lol", 'i');
+	test("asdasdasd\0", 'i');
 
 	return (0);
 }

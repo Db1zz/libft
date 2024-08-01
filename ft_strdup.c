@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 10:58:19 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 17:00:51 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:47:51 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(char *src)
 {
 	size_t	len;
 	char	*result;
 
-	len = ft_strlen(src) + 1;
+	len = ft_strlen(src);
 	result = (char *)malloc(len + 1);
-	if (len - 1 == 0 || result == NULL)
+	if (!result)
 		return (NULL);
-	ft_strlcpy(result, src, len);
+	ft_memcpy(result, src, len);
 	result[len] = '\0';
 	return (result);
 }

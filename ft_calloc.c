@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 18:52:00 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 16:55:09 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:29:05 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*result;
 
-	result = malloc((count * size) + 1);
+	result = malloc(count * size);
 	if (!result)
 		return (NULL);
-	ft_bzero(result, count);
-	((char *)result)[count] = '\0';
+	ft_bzero(result, count * size);
 	return (result);
 }
 

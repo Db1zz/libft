@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:33:53 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/12 11:32:16 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:47:12 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> // This header is used to get size_t
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

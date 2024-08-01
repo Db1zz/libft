@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:14:57 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/12 12:29:20 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:46:08 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h> // Is used for size_t
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -18,7 +18,7 @@ void	ft_bzero(void *s, size_t n)
 
 	i = 0;
 	while (i < n)
-		((char *)s)[i++] = '\0';
+		((char *)s)[i++] = 0;
 }
 
 /*

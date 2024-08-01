@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:00:01 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/17 14:50:20 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:29:14 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst)
+	t_list	*node;
+
+	node = lst;
+	while (node)
 	{
-		(*f)(lst->content);
-		lst = lst->next;
+		f(node->content);
+		node = node->next;
 	}
 }

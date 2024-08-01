@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 20:20:50 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 22:49:34 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:48:12 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -58,7 +57,6 @@ void	test(size_t dest_len, const char *src)
 	free(ft_strlcpy_dest);
 	free(strlcpy_dest);
 }
-
 
 int	main(void)
 {

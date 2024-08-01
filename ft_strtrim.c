@@ -3,75 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 17:08:17 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 11:53:15 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:48:56 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-
-static int	to_trim(char c, char const *set)
-{
-	size_t	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (c == set[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-static size_t	get_trimmed_size(char const *src, char const *set)
-{
-	size_t	i;
-	size_t	result;
-
-	i = 0;
-	result = 0;
-	while (src[i])
-	{
-		if (!to_trim(src[i], set))
-			result++;
-		i++;
-	}
-	return (result);
-}
-
-static void	trim(char *dest, char const *src, char const *set)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (src[i])
-	{
-		if (!to_trim(src[i], set))
-			dest[j++] = src[i];
-		i++;
-	}
-	dest[j] = '\0';
-}
+#include <stdlib.h>
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*result;
+	int		start;
+	int		end;
 
-	result = (char *)malloc(get_trimmed_size(s1, set) + 1);
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (ft_strchr(set, s1[start]) && start <= end)
+		start++;
+	while (ft_strchr(set, s1[end]) && end >= start)
+		end--;
+	result = (char *)malloc((end - start) + 2);
 	if (!result)
 		return (NULL);
-	trim(result, s1, set);
+	ft_strlcpy(result, (char *)(s1 + start), (end - start) + 2);
 	return (result);
 }
-
-// Tests
 /*
+// Tests
 #include <stdio.h>
 
 void	test(char const *s1, char const *set, char const *expected)
@@ -88,9 +51,9 @@ void	test(char const *s1, char const *set, char const *expected)
 
 int	main(void)
 {
-	test("aaaaaBobsa", "a", "Bobs");
-	test("111111001010101", "10", "");
-	test("Suka Blyat", "Suka", " Blyt");
+	test("dascdasdMy name is Simonasdasdasd adasdasd asdcas", "asd", 
+		"cdasdMy name is Simonasdasdasd adasdasd asdc");
+
 	return (0);
 }
 */

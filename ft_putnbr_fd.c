@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 14:47:50 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 17:03:43 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:29:24 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(num / 10, fd);
 	ft_putchar_fd('0' + (num % 10), fd);
 }
-
-/*
-// Tests
-#include <limits.h>
-
-void	test(int n)
-{
-	ft_putnbr_fd(n);
-	ft_putchar('\n');
-}
-
-int	main(void)
-{
-	test(INT_MIN);
-	test(-1);
-	test(-10);
-	test(-11);
-}
-*/

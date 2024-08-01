@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 12:21:11 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 13:43:47 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:50:35 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "limits.h"
+#include <limits.h>
+#include "libft.h"
 
 static size_t	itarr_size(long int n)
 {
@@ -39,6 +40,8 @@ char	*ft_itoa(int n)
 		v = v * -1;
 	len += itarr_size(v);
 	result = (char *)malloc(len + 1);
+	if (!result)
+		return (NULL);
 	i = len - 1;
 	while (i >= (0 + (n < 0)))
 	{

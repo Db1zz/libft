@@ -3,25 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 11:04:35 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/14 17:01:14 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:49:03 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*result;
+	size_t	i;
 
-	result = (char *)malloc(len + 1);
-	if (!result || len == 0)
+	if (!s)
 		return (NULL);
-	ft_memcpy(result, s + start, len);
-	result[len] = '\0';
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
+	result = ft_calloc(len + 1, sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		result[i] = s[start + i];
+		i++;
+	}
 	return (result);
 }
 

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 16:08:09 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/11 17:14:26 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:48:41 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
-	if (big[0] == 0 || big == 0)
-		return ((char *)little);
+	if (little[0] == 0)
+		return ((char *)big);
 	i = 0;
 	while (big[i] && i < len)
 	{

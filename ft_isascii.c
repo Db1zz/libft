@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:36:29 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/10 14:54:42 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:50:15 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iscascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

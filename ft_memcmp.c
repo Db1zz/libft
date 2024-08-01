@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:26:02 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/17 14:34:32 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:46:46 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -20,12 +20,14 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	p1 = (unsigned char *)s1;
 	p2 = (unsigned char *)s2;
-	if (n <= 0)
-		return (0);
 	i = 0;
-	while (i < n && (p1[i] && p2[i]) && (p1[i] == p2[i]))
+	while (i < n)
+	{
+		if ((unsigned char)p1[i] != (unsigned char)p2[i])
+			return ((unsigned char)p1[i] - (unsigned char)p2[i]);
 		i++;
-	return (((char *)s1)[i] - ((char *)s2)[i]);
+	}
+	return (0);
 }
 
 // Test

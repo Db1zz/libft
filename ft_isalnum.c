@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:28:21 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/12 12:34:01 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:29:05 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_isalnum(int ch)
 }
 
 /*
-// Testing zone 
+// Testing 	zone 
 #include <stdio.h>
 
 void	test(int value, int expected_result)

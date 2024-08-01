@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 20:53:58 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/17 14:07:13 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:51:36 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-// delimeter == '\0'
-// "[rnd'\0'asdasd'\0'dasd'\0']"
+#include <stdlib.h>
+
 static size_t	count_words(char const *s, char delimeter)
 {
 	size_t	i;
@@ -46,35 +45,51 @@ static char	*alloc_word(char const *s, size_t len)
 	if (!s)
 		return (NULL);
 	result = (char *)malloc(len + 1);
+	if (!result)
+		return (NULL);
 	if (result)
 		ft_memcpy(result, s, len);
 	result[len] = '\0';
 	return (result);
 }
 
-static void	fill_matrix(char const *s, char delimeter, char **dest)
+static char	**free_matrix(char **mat, int n)
 {
-	char	*start;
-	int		is_word;
+	int	i;
 
+	i = 0;
+	while (i < n)
+		free(mat[i++]);
+	return (NULL);
+}
+
+static char	**fill_matrix(char const *s, char delimeter, char **dest, size_t n)
+{
+	size_t		i;
+	char const	*start;
+	int			is_word;
+
+	i = 0;
 	is_word = 0;
-	while (*s)
+	while (i < n)
 	{
-		if ((*s) == delimeter && is_word == 1)
+		if ((*s == delimeter || !(*s)) && is_word == 1)
 		{
-			(*dest) = alloc_word(start, s - start);
+			dest[i++] = alloc_word(start, s - start);
+			if (!dest[i - 1])
+				break ;
 			is_word = 0;
-			dest++;
 		}
-		if ((*s) != delimeter && is_word == 0)
+		if (*s != delimeter && is_word == 0)
 		{
-			start = (char *)s;
+			start = s;
 			is_word = 1;
 		}
 		s++;
 	}
-	if (is_word == 1)
-		(*dest) = alloc_word(start, s - start);
+	if (!dest[i - 1])
+		return (free_matrix(dest, i - 1));
+	return (dest);
 }
 
 char	**ft_split(char const *s, char delimeter)
@@ -84,8 +99,14 @@ char	**ft_split(char const *s, char delimeter)
 
 	matrix_len = count_words(s, delimeter);
 	result = (char **)malloc(sizeof(char *) * (matrix_len + 1));
-	fill_matrix(s, delimeter, result);
+	if (!result)
+		return (NULL);
 	result[matrix_len] = NULL;
+	if (matrix_len && !fill_matrix(s, delimeter, result, matrix_len))
+	{
+		free(result);
+		return (NULL);
+	}
 	return (result);
 }
 
@@ -133,5 +154,7 @@ int	main(void)
 	test_ft_split("lol", 'c');
 	test_ft_split("", 'c');
 	test_ft_split("rnd1\0asdasd\0dfskgfdg\0sadfasdf\0", '\0');
+	test_ft_split("\0rnd1\0asdasd\0dfskgfdg\0sadfasdf\0", '\0');
+	test_ft_split("      split       this for   me  !       ", ' ');
 }
 */

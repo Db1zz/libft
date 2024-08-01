@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:51:45 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/17 14:49:57 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 20:20:55 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tail;
 
-	tail = *lst;
 	while (*lst)
 	{
-		(*lst) = (*lst)->next;
-		ft_lstdelone(tail, del);
+		tail = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tail;
 	}
+	free(*lst);
+	*lst = NULL;
 }

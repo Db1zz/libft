@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gonische <gonische@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:51:24 by gonische          #+#    #+#             */
-/*   Updated: 2024/06/11 16:53:11 by gonische         ###   ########.fr       */
+/*   Updated: 2024/06/20 19:48:50 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -19,12 +19,14 @@ char	*ft_strrchr(const char *s, int c)
 
 	i = 0;
 	result = NULL;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		if (s[i] == (char)c)
-			result = (char *)(&s[i]);
+			result = (char *)&s[i];
 		i++;
 	}
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
 	return (result);
 }
 
