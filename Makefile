@@ -1,6 +1,11 @@
 # Project compiler settings
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+ARCH := $(shell uname -m)
+ifneq ($(ARCH),x86_64)
+	CFLAGS = -arch $(ARCH) -Wall -Werror -Wextra
+else
+	CFLAGS = -Wall -Werror -Wextra
+endif
 # CFLAGS = -fsanitize=address
 
 # Project/Binary Name
@@ -8,6 +13,7 @@ NAME = libft.a
 
 # Project Files
 SRCS =	ft_atoi.c 							\
+		ft_strncpy.c 						\
 		ft_isdigit.c 						\
 		ft_memchr.c 						\
 		ft_putendl_fd.c 					\
@@ -60,6 +66,7 @@ SRCS =	ft_atoi.c 							\
 		ft_printf/src/ft_utils.c			\
 		get_next_line/get_next_line_utils.c	\
 		get_next_line/get_next_line.c		\
+		ft_queue.c							\
 
 OBJS = $(SRCS:.c=.o)
 
