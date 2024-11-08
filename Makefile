@@ -13,6 +13,7 @@ NAME = libft.a
 
 # Project Files
 SRCS =	ft_atoi.c 							\
+		ft_atof.c							\
 		ft_strncpy.c 						\
 		ft_isdigit.c 						\
 		ft_memchr.c 						\
@@ -66,7 +67,6 @@ SRCS =	ft_atoi.c 							\
 		ft_printf/src/ft_utils.c			\
 		get_next_line/get_next_line_utils.c	\
 		get_next_line/get_next_line.c		\
-		ft_queue.c							\
 
 OBJS = $(SRCS:.c=.o)
 
