@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 17:23:07 by gonische          #+#    #+#             */
-/*   Updated: 2024/11/14 22:54:45 by gonische         ###   ########.fr       */
+/*   Created: 2024/11/14 16:44:44 by gonische          #+#    #+#             */
+/*   Updated: 2024/11/14 16:45:18 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-t_node_list	*ft_get_new_node(char *data)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_node_list	*result;
+	size_t	i;
 
-	result = (t_node_list *)ft_calloc(1, sizeof(t_node_list));
-	if (!result)
-		return (NULL);
-	if (data)
-		result->data = data;
-	else
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		result->data = (char *)ft_calloc(LINE_DATA_SIZE + 1, sizeof(char));
-		if (!result->data)
-		{
-			free(result);
-			return (NULL);
-		}
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	result->next = NULL;
-	return (result);
+	return (0);
 }

@@ -6,19 +6,17 @@
 /*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:30:25 by gonische          #+#    #+#             */
-/*   Updated: 2024/11/08 19:29:16 by gonische         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:45:16 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h> // Is used to get size_t
+# include <stddef.h>
 # include "./ft_printf/include/ft_printf.h"
 
-/* 
-	Libft mandatory functions
-*/
+char	*get_next_line(int fd);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int ch);
@@ -32,6 +30,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 char	*ft_strncpy(char *dest, char const *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
@@ -55,10 +54,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_rand(void);
 
-/*
-	Libft bonus functions and structure declaration
-*/
 typedef struct s_list
 {
 	void			*content;
@@ -74,10 +71,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-/*
-	get_next_line
-*/
-char	*get_next_line(int fd);
 
 #endif // _LIBFT_H_

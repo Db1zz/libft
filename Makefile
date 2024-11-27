@@ -2,9 +2,9 @@
 CC = cc
 ARCH := $(shell uname -m)
 ifneq ($(ARCH),x86_64)
-	CFLAGS = -arch $(ARCH) -Wall -Werror -Wextra
+	CFLAGS = -arch $(ARCH) -Wall -Werror -Wextra -g -O3
 else
-	CFLAGS = -Wall -Werror -Wextra
+	CFLAGS = -Wall -Werror -Wextra -g -O3
 endif
 # CFLAGS = -fsanitize=address
 
@@ -41,6 +41,7 @@ SRCS =	ft_atoi.c 							\
 		ft_isalpha.c 						\
 		ft_memset.c 						\
 		ft_strchr.c 						\
+		ft_strcmp.c							\
 		ft_strlen.c 						\
 		ft_substr.c 						\
 		ft_isascii.c 						\

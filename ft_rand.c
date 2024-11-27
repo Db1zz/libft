@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_rand.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gonische <gonische@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 17:23:07 by gonische          #+#    #+#             */
-/*   Updated: 2024/11/14 22:54:45 by gonische         ###   ########.fr       */
+/*   Created: 2024/11/27 20:43:12 by gonische          #+#    #+#             */
+/*   Updated: 2024/11/27 20:46:05 by gonische         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-t_node_list	*ft_get_new_node(char *data)
+/* pseudo random function */
+int	ft_rand(void)
 {
-	t_node_list	*result;
+	static unsigned long int	seed = 1;
 
-	result = (t_node_list *)ft_calloc(1, sizeof(t_node_list));
-	if (!result)
-		return (NULL);
-	if (data)
-		result->data = data;
-	else
-	{
-		result->data = (char *)ft_calloc(LINE_DATA_SIZE + 1, sizeof(char));
-		if (!result->data)
-		{
-			free(result);
-			return (NULL);
-		}
-	}
-	result->next = NULL;
-	return (result);
+	seed = seed * 1103515245 + 12345;
+	return ((unsigned int)(seed / 65536) % 32768);
 }
